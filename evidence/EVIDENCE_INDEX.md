@@ -4,13 +4,13 @@
 **Assignment:** Question 50 (P50), AI in Software Engineering Integrated Project Handbook  
 **Evaluation Standard:** 5 Course Phases (Phases 1 to 5, Syllabus Coverage IDs 1.1 to 5.6)  
 **Academic Session:** November 2026  
-**Repository Version:** 2.0.0 (Syllabus-Aligned Compliance Release)  
+**Repository Version:** 2.1.0 (Syllabus-Aligned Final Compliance Release)  
 
 ---
 
 ## 1. Executive Summary & Verification Dashboard
 
-This master index catalogs all mandatory deliverables required by the official P50 handbook. Evidence is classified using strict academic integrity standards:
+This master index catalogs all **37 mandatory syllabus deliverables** required by the official P50 handbook. Evidence is classified using strict academic integrity standards:
 - **`VERIFIED`**: Inspected, verified, and backed by genuine runtime code, passing tests, and actual command execution logs.
 - **`PARTIAL`**: Implemented and locally validated, but awaiting integration with remote live services.
 - **`PENDING`**: External cloud infrastructure or visual screenshots required from external enterprise systems (Jira Cloud, GitHub Actions remote runners, Jenkins Master server, SonarQube web server).
@@ -28,17 +28,30 @@ Static Analysis Scanner:         SonarScanner v5.1.0 executed (honest ECONNREFUS
 Persistence Architecture:        Dual-Mode Data Store (100% operational in both modes)
 Total User Stories:              20 granular stories with Gherkin criteria (Citizens & Staff)
 Scrum Sprints:                   Two official 1-week sprints + hardening milestones
-Mandatory Syllabus IDs:          All 35 IDs (1.1 to 5.6) mapped and documented
+Mandatory Syllabus IDs:          All 37 IDs (1.1 to 5.6) mapped and documented
 Supplementary Dossiers:          5 specialized engineering reports (Boundary, Seed, Benchmarks, OWASP, XAI)
 ========================================================================================
 ```
 
 ---
 
-## 2. Mandatory Syllabus Coverage Index (Phases 1 to 5)
+## 2. Phase-Wise Count Verification and Status Breakdown
+
+| Course Phase | Syllabus Scope | Mandatory IDs Count | VERIFIED Count | PARTIAL Count | PENDING External Cloud Artifacts |
+|---|---|:---:|:---:|:---:|:---:|
+| **Phase 1** | Introduction to AI in Software Engineering & SRS | **6 IDs** (1.1 to 1.6) | 6 | 0 | 0 |
+| **Phase 2** | Agile Practices and AI-Driven Planning | **8 IDs** (2.1 to 2.8) | 7 | 1 (ID 2.7) | 1 (`JIRA-SCR-01`) |
+| **Phase 3** | Development & Deployment Practices using AI | **8 IDs** (3.1 to 3.8) | 6 | 2 (IDs 3.5, 3.6) | 2 (`GHA-SCR-01`, `JNK-SCR-01`) |
+| **Phase 4** | AI-Based Testing and System Monitoring | **9 IDs** (4.1 to 4.9) | 8 | 1 (ID 4.8) | 1 (`MON-SCR-01`) |
+| **Phase 5** | QA, Security, Ethics & Governance | **6 IDs** (5.1 to 5.6) | 5 | 1 (ID 5.2) | 1 (`SONAR-SCR-01`) |
+| **Total** | **All 5 Course Modules** | **37 IDs** | **32 IDs (86.5%)** | **5 IDs (13.5%)** | **5 External Artifacts** |
+
+---
+
+## 3. Mandatory Syllabus Coverage Index (Phases 1 to 5)
 
 ### Phase 1: Introduction to AI in Software Engineering & System Requirements
-*Focus: Problem definition, process model selection, SDLC transformation, AI tool evaluation, and IEEE 830 SRS.*
+*Total Deliverables: 6 IDs | Status: 6 VERIFIED, 0 PARTIAL, 0 PENDING*
 
 | Syllabus ID | Official Handbook Deliverable Title | Evidence Dossier File Path | Status | Key Artifacts & Verification Notes |
 |:---:|---|---|:---:|---|
@@ -52,7 +65,7 @@ Supplementary Dossiers:          5 specialized engineering reports (Boundary, Se
 ---
 
 ### Phase 2: Agile Practices and AI-Driven Planning, Estimation and Scheduling
-*Focus: Agile values, Scrum roles, sprint ceremonies, 20 INVEST user stories, two 1-week sprints, and AI estimation.*
+*Total Deliverables: 8 IDs | Status: 7 VERIFIED, 1 PARTIAL, 1 PENDING*
 
 | Syllabus ID | Official Handbook Deliverable Title | Evidence Dossier File Path | Status | Key Artifacts & Verification Notes |
 |:---:|---|---|:---:|---|
@@ -68,7 +81,7 @@ Supplementary Dossiers:          5 specialized engineering reports (Boundary, Se
 ---
 
 ### Phase 3: Development and Deployment Practices using AI Tools
-*Focus: Development diary, prompt variants, decision log, Git branching, CI/CD, and Docker.*
+*Total Deliverables: 8 IDs | Status: 6 VERIFIED, 2 PARTIAL, 2 PENDING*
 
 | Syllabus ID | Official Handbook Deliverable Title | Evidence Dossier File Path | Status | Key Artifacts & Verification Notes |
 |:---:|---|---|:---:|---|
@@ -84,7 +97,7 @@ Supplementary Dossiers:          5 specialized engineering reports (Boundary, Se
 ---
 
 ### Phase 4: AI-Based Testing and Monitoring
-*Focus: Manual vs automated testing, coverage, integration tests, acceptance, Selenium POM, risk TTFF, defect prediction, monitoring, and AI testing gaps.*
+*Total Deliverables: 9 IDs | Status: 8 VERIFIED, 1 PARTIAL, 1 PENDING*
 
 | Syllabus ID | Official Handbook Deliverable Title | Evidence Dossier File Path | Status | Key Artifacts & Verification Notes |
 |:---:|---|---|:---:|---|
@@ -101,7 +114,7 @@ Supplementary Dossiers:          5 specialized engineering reports (Boundary, Se
 ---
 
 ### Phase 5: AI-Powered Quality Assurance and Ethical Development
-*Focus: SQA plan and radar chart, SonarQube before/after, tripartite review comparison, Responsible-AI checklist, AI code comparison & declaration, and lessons learned.*
+*Total Deliverables: 6 IDs | Status: 5 VERIFIED, 1 PARTIAL, 1 PENDING*
 
 | Syllabus ID | Official Handbook Deliverable Title | Evidence Dossier File Path | Status | Key Artifacts & Verification Notes |
 |:---:|---|---|:---:|---|
@@ -114,7 +127,7 @@ Supplementary Dossiers:          5 specialized engineering reports (Boundary, Se
 
 ---
 
-## 3. Supplementary Engineering Evidence (Separate from Mandatory IDs)
+## 4. Supplementary Engineering Evidence (Separate from Mandatory IDs)
 
 In strict accordance with instructions ("Move boundary analysis, synthetic data and performance benchmarks into supplementary evidence if useful. Do not use them as substitutes for required IDs"), the following supplementary dossiers are maintained:
 
@@ -128,19 +141,19 @@ In strict accordance with instructions ("Move boundary analysis, synthetic data 
 
 ---
 
-## 4. Evidence-Pending Registry (Adhering to Academic Honesty Rules)
+## 5. Evidence-Pending Registry (Adhering to Academic Honesty Rules)
 
-The following four external artifacts require connection to remote enterprise services or live third-party accounts and are cataloged honestly as **`PENDING`**:
+The following five external artifacts require connection to remote enterprise services or live third-party accounts and are cataloged honestly as **`PENDING`**:
 
 1. **`[EVIDENCE-PENDING: JIRA-SCR-01]`**: Live Atlassian Jira Cloud active sprint board screenshot ([Instructions in Evidence 2.7](file:///c:/Users/mallanagouda%20s%20b/OneDrive/Desktop/cat3/evidence/phase2/2.7_jira_and_tool_ratings.md#L39-L55)).
 2. **`[EVIDENCE-PENDING: GHA-SCR-01]`**: Live GitHub Actions web UI green checkmark run screenshot ([Instructions in Evidence 3.5](file:///c:/Users/mallanagouda%20s%20b/OneDrive/Desktop/cat3/evidence/phase3/3.5_github_actions_evidence.md#L62-L78)).
 3. **`[EVIDENCE-PENDING: JNK-SCR-01]`**: Live Jenkins Master web UI console execution log ([Instructions in Evidence 3.6](file:///c:/Users/mallanagouda%20s%20b/OneDrive/Desktop/cat3/evidence/phase3/3.6_jenkins_console_evidence.md#L78-L96)).
-4. **`[EVIDENCE-PENDING: SONAR-SCR-01]`**: Live SonarQube Server web dashboard Quality Gate screenshot ([Instructions in Evidence 5.2](file:///c:/Users/mallanagouda%20s%20b/OneDrive/Desktop/cat3/evidence/phase5/5.2_sonarqube_scan_report.md#L65-L84)).
-5. **`[EVIDENCE-PENDING: MON-SCR-01]`**: Live Grafana / Prometheus operational monitoring dashboard screenshot ([Instructions in Evidence 4.8](file:///c:/Users/mallanagouda%20s%20b/OneDrive/Desktop/cat3/evidence/phase4/4.8_monitoring_dashboard_screenshots.md#L35-L51)).
+4. **`[EVIDENCE-PENDING: MON-SCR-01]`**: Live Grafana / Prometheus operational monitoring dashboard screenshot ([Instructions in Evidence 4.8](file:///c:/Users/mallanagouda%20s%20b/OneDrive/Desktop/cat3/evidence/phase4/4.8_monitoring_dashboard_screenshots.md#L35-L51)).
+5. **`[EVIDENCE-PENDING: SONAR-SCR-01]`**: Live SonarQube Server web dashboard Quality Gate screenshot ([Instructions in Evidence 5.2](file:///c:/Users/mallanagouda%20s%20b/OneDrive/Desktop/cat3/evidence/phase5/5.2_sonarqube_scan_report.md#L65-L84)).
 
 ---
 
-## 5. Verification Instructions for Academic Evaluators
+## 6. Verification Instructions for Academic Evaluators
 
 To independently reproduce all verified metrics reported in this evidence repository:
 
