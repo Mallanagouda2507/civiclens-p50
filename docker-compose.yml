@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: civiclens-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=civiclens
+    networks:
+      - civiclens-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: civiclens-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGODB_URI=mongodb://mongodb:27017/civiclens
+      - JWT_SECRET=civiclens_jwt_super_secret_key_academic_2026
+      - JWT_EXPIRES_IN=24h
+      - SIMILARITY_THRESHOLD=0.60
+      - DISTANCE_THRESHOLD_METERS=75
+      - NODE_ENV=production
+    depends_on:
+      - mongodb
+    networks:
+      - civiclens-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: civiclens-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - civiclens-network
+
+volumes:
+  mongo-data:
+
+networks:
+  civiclens-network:
+    driver: bridge
