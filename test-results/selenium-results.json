@@ -1,0 +1,35 @@
+{
+  "testSuite": "CivicLens Selenium E2E Suite",
+  "timestamp": "2026-11-23T12:51:10.377Z",
+  "browser": "Google Chrome (Headless)",
+  "totalActions": 5,
+  "passedActions": 5,
+  "failedActions": 0,
+  "steps": [
+    {
+      "name": "Action 1: Opening the application",
+      "status": "PASSED",
+      "details": "Page loaded with title: CivicLens – Municipal Complaint Portal with Geotagging"
+    },
+    {
+      "name": "Action 2: Loading complaint submission page",
+      "status": "PASSED",
+      "details": "Submission form loaded with title, description, address, and interactive map picker"
+    },
+    {
+      "name": "Action 3: Submitting a complaint with valid information",
+      "status": "PASSED",
+      "details": "Submitted: \"Selenium P50 Automated Test: Road Pothole Indiranagar\" at \"100ft Road, Near Metro Pillar 82, Indiranagar, Bengaluru\""
+    },
+    {
+      "name": "Action 4: Verifying complaint submission feedback",
+      "status": "PASSED",
+      "details": "Confirmed feedback banner and tracking reference ID: CL-2026-D55057"
+    },
+    {
+      "name": "Action 5: Verifying Leaflet map renders",
+      "status": "PASSED",
+      "details": "Leaflet GIS map container (.leaflet-container) and tile pane successfully initialized and rendered"
+    }
+  ]
+}

@@ -185,6 +185,82 @@ describe('Complaints & Grievance Lifecycle Suite (F-02, F-03, F-04, F-05, F-08, 
       expect(res.status).toBe(403);
       expect(res.body.success).toBe(false);
     });
+
+    it('should reject invalid status with 400 Bad Request', async () => {
+      const res = await request(app)
+        .put(`/api/complaints/${createdComplaintId}/status`)
+        .set('Authorization', `Bearer ${staffToken}`)
+        .send({ status: 'NON_EXISTENT_STATUS' });
+
+      expect(res.status).toBe(400);
+      expect(res.body.success).toBe(false);
+      expect(res.body.message).toContain('Invalid status');
+    });
+
+    it('should return 404 when updating a non-existent complaint', async () => {
+      const fakeId = '507f1f77bcf86cd799439011';
+      const res = await request(app)
+        .put(`/api/complaints/${fakeId}/status`)
+        .set('Authorization', `Bearer ${staffToken}`)
+        .send({ status: 'IN_PROGRESS' });
+
+      expect(res.status).toBe(404);
+      expect(res.body.success).toBe(false);
+    });
+
+    it('should retrieve complaint by MongoDB ID (GET /api/complaints/:id)', async () => {
+      const res = await request(app).get(`/api/complaints/${createdComplaintId}`);
+      expect(res.status).toBe(200);
+      expect(res.body.success).toBe(true);
+      expect(res.body.complaint).toBeDefined();
+      expect(Array.isArray(res.body.auditLogs)).toBe(true);
+    });
+
+    it('should return 404 for non-existent complaint ID', async () => {
+      const fakeId = '507f1f77bcf86cd799439011';
+      const res = await request(app).get(`/api/complaints/${fakeId}`);
+      expect(res.status).toBe(404);
+      expect(res.body.success).toBe(false);
+    });
+
+    it('should assign a municipal staff member to complaint (PUT /api/complaints/:id/assign)', async () => {
+      // Fetch staff roster to get valid staff ID
+      const staffRes = await request(app)
+        .get('/api/auth/staff')
+        .set('Authorization', `Bearer ${staffToken}`);
+      const officer = staffRes.body.staff[0];
+
+      const res = await request(app)
+        .put(`/api/complaints/${createdComplaintId}/assign`)
+        .set('Authorization', `Bearer ${staffToken}`)
+        .send({ staffId: officer._id || officer.id });
+
+      expect(res.status).toBe(200);
+      expect(res.body.success).toBe(true);
+      expect(res.body.complaint.assignedStaffName).toBe(officer.name);
+    });
+
+    it('should return 404 when assigning a non-existent staff member ID', async () => {
+      const fakeStaffId = '507f1f77bcf86cd799439099';
+      const res = await request(app)
+        .put(`/api/complaints/${createdComplaintId}/assign`)
+        .set('Authorization', `Bearer ${staffToken}`)
+        .send({ staffId: fakeStaffId });
+
+      expect(res.status).toBe(404);
+      expect(res.body.success).toBe(false);
+      expect(res.body.message).toContain('staff member not found');
+    });
+
+    it('should filter complaints by myOnly=true for authenticated citizen', async () => {
+      const res = await request(app)
+        .get('/api/complaints?myOnly=true')
+        .set('Authorization', `Bearer ${citizenToken}`);
+
+      expect(res.status).toBe(200);
+      expect(res.body.success).toBe(true);
+      expect(Array.isArray(res.body.complaints)).toBe(true);
+    });
   });
 
   describe('Analytics & SLA Monitoring API (F-09)', () => {

@@ -377,8 +377,8 @@ export const SubmitComplaintPage = ({ user, onComplaintSubmitted, onTrackTrackin
             </h4>
             <ul style={{ fontSize: '0.78rem', color: '#475569', display: 'flex', flexDirection: 'column', gap: '0.4rem', paddingLeft: '1.1rem' }}>
               <li><strong>Geotagging:</strong> Exact coordinates captured via Leaflet/GPS.</li>
-              <li><strong>Spatial Clustered Duplicates:</strong> Haversine distance threshold $\le 75\text{m}$.</li>
-              <li><strong>Text Similarity:</strong> TF-IDF cosine score $\ge 0.60$.</li>
+              <li><strong>Spatial Clustered Duplicates:</strong> Haversine distance threshold &le; 75 meters.</li>
+              <li><strong>Text Similarity:</strong> TF-IDF cosine score &ge; 0.60.</li>
               <li><strong>Department Routing:</strong> Multinomial Naive Bayes classifier.</li>
             </ul>
           </div>
