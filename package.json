@@ -1,0 +1,21 @@
+{
+  "name": "civiclens",
+  "version": "1.0.0",
+  "description": "CivicLens - Municipal Complaint Portal with Geotagging (Question 50 - P50)",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "test": "npm --prefix backend test",
+    "test:coverage": "npm --prefix backend run test:coverage",
+    "test:selenium": "npm --prefix backend run test:selenium",
+    "build": "npm --prefix frontend run build",
+    "seed": "npm --prefix backend run seed",
+    "sonar": "sonarqube-scanner"
+  },
+  "devDependencies": {
+    "sonarqube-scanner": "^4.2.6"
+  }
+}
