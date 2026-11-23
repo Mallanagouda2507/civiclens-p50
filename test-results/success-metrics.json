@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-23T13:51:00.557Z",
+  "metrics": {
+    "routingAccuracy": {
+      "totalCases": 30,
+      "passedCases": 29,
+      "percentage": 96.67,
+      "target": 80,
+      "status": "PASSED"
+    },
+    "duplicateClusteringAccuracy": {
+      "totalCases": 30,
+      "correctCases": 28,
+      "percentage": 93.33,
+      "targetCount": 25,
+      "targetPercentage": 83.33,
+      "status": "PASSED"
+    }
+  }
+}
