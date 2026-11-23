@@ -23,39 +23,11 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Mount Routes
+// API Routes
 app.use('/api/auth', require('./routes/authRoutes'));
-
-// Lazy load complaint, AI, and analytics routes once created in subsequent stages
-app.use('/api/complaints', (req, res, next) => {
-  try {
-    const complaintRoutes = require('./routes/complaintRoutes');
-    return complaintRoutes(req, res, next);
-  } catch (err) {
-    if (err.code === 'MODULE_NOT_FOUND' && err.message.includes('complaintRoutes')) {
-      return res.status(503).json({
-        success: false,
-        message: 'Complaint service route initializing in Stage 4'
-      });
-    }
-    next(err);
-  }
-});
-
-app.use('/api/ai', (req, res, next) => {
-  try {
-    const aiRoutes = require('./routes/aiRoutes');
-    return aiRoutes(req, res, next);
-  } catch (err) {
-    if (err.code === 'MODULE_NOT_FOUND' && err.message.includes('aiRoutes')) {
-      return res.status(503).json({
-        success: false,
-        message: 'AI service route initializing in Stage 3'
-      });
-    }
-    next(err);
-  }
-});
+app.use('/api/complaints', require('./routes/complaintRoutes'));
+app.use('/api/ai', require('./routes/aiRoutes'));
+app.use('/api/analytics', require('./routes/analyticsRoutes'));
 
 // Centralized Error Handling
 app.use((err, req, res, next) => {
